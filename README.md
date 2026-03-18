@@ -1,123 +1,244 @@
-# Conditional Statements in Python: Even or Odd Checker
-## 🎯 Aim
-To write a Python program to check whether the given number is **even** or **odd** using `if...else` statements.
-## 🧠 Algorithm
-1. Get an input from the user.
-2. Convert the input to an integer and store it in a variable `a`.
-3. Use the modulo operator `%` to check if `a % 2 == 0`.
-   - If true, print `"EVEN"`.
-   - Else, print `"ODD"`.
-4. End the program.
-## 🧾 Program
+# 🐍 Python OOP: Abstract Class & Method Example
+
+## 🎯 AIM
+
+To create an **abstract class** named `Shape` with an **abstract method** `calculate_area`, and implement this method in two subclasses: `Rectangle` and `Circle`.
+
+---
+
+## 🧠 ALGORITHM
+
+1. **Import ABC module**:
+   - Use `from abc import ABC, abstractmethod` to define abstract classes and methods.
+
+2. **Create Abstract Class `Shape`**:
+   - Define an abstract method `calculate_area()` with `@abstractmethod`.
+
+3. **Create Subclass `Rectangle`**:
+   - Set default values for `length` and `breadth`.
+   - Override `calculate_area()` to compute the rectangle area.
+
+4. **Create Subclass `Circle`**:
+   - Set default value for `radius`.
+   - Override `calculate_area()` to compute the circle area.
+
+5. **Create Objects & Call Methods**:
+   - Instantiate `Rectangle` and `Circle`.
+   - Call their `calculate_area()` methods.
+
+---
+
+## 💻 Program
 ```
-a=int(input())
-if(a%2==0):
-    print("EVEN")
+from abc import ABC
+class Shape(ABC):
+    def calculate_area(self):
+        pass
+class Rectangle(Shape):
+    length = 5
+    breadth =3 
+    def calculate_area(self):
+        return self.length * self.breadth
+
+class Circle(Shape):
+  radius = 4
+  def calculate_area(self):
+        return self.radius * self.radius*3.14
+
+rec=Rectangle()
+cir=Circle()#object created for the class 'Rectangle'
+#object created for the class 'Circle'
+print("Area of a rectangle:", rec.calculate_area()) #call to 'calculate_area' method defined inside the class 'Rectangle'
+print("Area of a circle:", cir.calculate_area()) #call to 'calculate_area' method defined inside the class 'Circle'.
+```
+## Output
+![443950839-7b2ffd74-5cf9-4020-828a-e8a8f8a0cfc9](https://github.com/user-attachments/assets/ee8245d1-1ea3-498f-82cf-174551139ca8)
+
+## Result
+Thus, the python program is executed successfully.
+
+# 🐍 Python OOP: Encapsulation with Private Members
+
+## 🎯 AIM
+
+To implement **Encapsulation** in Python by defining a class `Rectangle` with **private member variables** `__length` and `__breadth`.
+
+---
+
+## 🧠 ALGORITHM
+
+1. **Define the Class**:
+   - Create a class `Rectangle` with two private attributes: `__length` and `__breadth`.
+
+2. **Initialize Variables**:
+   - Use the `__init__()` constructor to set initial values for `__length` and `__breadth`.
+
+3. **Print Values**:
+   - Display the private variables from within the class to demonstrate access.
+
+4. **Instantiate the Object**:
+   - Create an object of the `Rectangle` class to trigger the constructor.
+
+---
+
+## 💻 Program
+```
+class Rectangle:
+    def __init__(self, length, width):
+        self.__length = length  # Private variable
+        self.__width = width    # Private variable
+    
+    # Method to print private variables
+    def print_values(self):
+        print(self.__length)
+        print(self.__width)
+
+# Create an object of Rectangle class
+rect = Rectangle(5, 3)
+
+# Print private values using the method within the class
+rect.print_values()
+
+# Attempt to print private values outside the class (will raise an AttributeError)
+```
+## Output
+![443963746-63fc5989-f95c-4771-8490-bdff81b7eeb4](https://github.com/user-attachments/assets/d1245852-a52c-4709-b6c5-ddb3d511f03e)
+
+## Result
+Thus, the program is executed successfully
+
+# 🐟 Method Overriding-Fish and Shark Class Inheritance in Python
+
+## 🧠 AIM:
+To write a Python program that demonstrates class inheritance by creating a parent class `Fish` with a method `type`, and a child class `Shark` that overrides the `type` method.
+
+## 📋 ALGORITHM:
+
+1. Define the `Fish` class with a method named `type()` that prints `"fish"`.
+2. Define the `Shark` class as a subclass of `Fish`, and override the `type()` method to print `"shark"`.
+3. Create an instance of the `Fish` class named `obj_goldfish`.
+4. Create an instance of the `Shark` class named `obj_hammerhead`.
+5. Use a `for` loop to iterate over both objects.
+6. Within the loop, call the `type()` method using the loop variable.
+7. Output will demonstrate method overriding: printing `"fish"` and `"shark"` accordingly.
+
+## 💻 PROGRAM:
+```
+class Fish:
+    def type(self):
+        print("fish")
+
+
+class Shark(Fish):
+    def type(self):
+        print("shark")
+
+
+obj_goldfish = Fish()
+obj_hammerhead = Shark()
+
+obj_goldfish.type()
+obj_hammerhead.type()
+```
+## OUTPUT
+![443966663-fc84bcbd-4502-44b2-bd78-396bdd996d19](https://github.com/user-attachments/assets/b410600c-235a-4473-985f-a30fed906ecd)
+
+## RESULT
+Thus, the program is executed successfully.
+
+# 🐍 Python OOP: Operator Overloading (Less Than `<`)
+
+## 🎯 AIM
+
+To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
+
+---
+
+## 🧠 ALGORITHM
+
+1. **Create Class `A`**:
+   - Define the `__init__()` method to initialize the object with a value `a`.
+
+2. **Overload the `<` Operator**:
+   - Define the `__lt__()` method with logic:
+     - If `self.a < o.a`, return `"ob1 is less than ob2"`
+     - Else, return `"ob2 is less than ob1"`
+
+3. **Create Objects**:
+   - Instantiate two objects `ob1` and `ob2` with values.
+
+4. **Use `<` Operator**:
+   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
+
+---
+
+## 💻 Program
+```
+class A:
+    def __init__(self,a):
+        self.a=a
+    def __gt__(self,other):
+        return self.a<other.a
+ob1=A(200)
+ob2=A(30)
+if(ob1<ob2):
+    print("ob2 is less than ob1")
 else:
-    print("ODD")
+    print("ob1 is less than ob1")
 ```
 ## Output
-![439810832-2f4a4a5f-100b-4d89-8646-a77e6b04630a](https://github.com/user-attachments/assets/dfca728d-2650-40fc-a574-a34bac209fb7)
+![443969972-761afa5a-c67e-4397-a9d7-c3779c3fa61a](https://github.com/user-attachments/assets/5420c5fc-597c-41b1-abd4-5bd67468a609)
+
 ## Result
-Thus,the Python program to check whether the given number is even or odd using if...else statements is created successfully.
+Thus,the program is executed successfully.
 
+# # 🐍 Python OOP: Polymorphism with Classes
 
-# Ex 1:Datatypes-Boolean Expression Evaluation in Python
+## 🎯 AIM
 
-## 🎯 Aim
-To write a Python program that evaluates and prints the results of boolean and arithmetic expressions involving `True` and `False`.
+To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
 
-## 🧠 Algorithm
-1. Set variable `a` to the result of the expression `0 == True`.
-2. Set variable `b` to the result of the expression `False == False`.
-3. Set variable `c` to the result of the expression `True + True`.
-4. Set variable `d` to the result of the expression `False + 9`.
-5. Print the value of `a` with the label "a is".
-6. Print the value of `b` with the label "b is".
-7. Print the value of `c` with the label "c:".
-8. Print the value of `d` with the label "d:".
+---
+
+## 🧠 ALGORITHM
+
+1. **Create Class `Beans`**:
+   - Define `type()` method that prints `"Vegetable"`.
+   - Define `color()` method that prints `"Green"`.
+
+2. **Create Class `Mango`**:
+   - Define `type()` method that prints `"Fruit"`.
+   - Define `color()` method that prints `"Yellow"`.
+
+3. **Define Generic Function `func(obj)`**:
+   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
+
+4. **Create Objects**:
+   - Instantiate `Beans` and `Mango`.
+   - Pass them to `func()` and execute the program.
+
+---
 
 ## 💻 Program
 ```
-a = (False == True)
-b = (False== 0)
-c = False + True
-d = False + 5
-print("a is",a)
-print("b is",b)
-print("c:",c)
-print("d:",d)
+class Beans(): 
+     def type(self): 
+       print("Vegetable") 
+     def color(self):
+       print("Green") 
+class Mango(): 
+     def type(self): 
+       print("Fruit") 
+     def color(self): 
+       print("Yellow")
+obj_beans = Beans() 
+obj_mango = Mango()
+for func in (obj_beans,obj_mango): 
+    func.type()
+    func.color()
 ```
 ## Output
-![439812218-a212012f-c2e5-4a3d-b495-a0d30f57e96f](https://github.com/user-attachments/assets/319b5aa2-30c5-4967-88b4-c45863dc25ee)
-## Result
-Thus,the Python program that evaluates and prints the results of boolean and arithmetic expressions involving True and False is created successfully.
-
-# Datatypes-Character Literal in Python
-
-## 🎯 Aim
-To write a Python program that prints the characters `'T'` and `'a'` using character literals.
-
-## 🧠 Algorithm
-1. Print the character `'T'`.
-2. Print the character `'a'`.
-
-## 🧾 Program
-```
-a='T'
-b='a'
-print(a)
-print(b)
-```
-## Output
-![439812856-546ea7c7-1df7-4f57-bf6c-fcd481c25ae2](https://github.com/user-attachments/assets/10b2e9b2-4e09-44d8-96b9-5fa67650cb96)
-## Result
-Thus,the Python program that prints the characters 'T' and 'a' using character literals is created successfully.
-
-# 🧮 Datatypes-Complex Number Creation in Python
-
-## 🎯 Aim
-To write a Python program that reads two integers, creates a complex number using them, and then prints the complex number along with its real and imaginary parts.
-
-## 🧠 Algorithm
-1. Read an integer input from the user and assign it to the variable `a` (real part).
-2. Read another integer input from the user and assign it to the variable `b` (imaginary part).
-3. Create a complex number `x` using the `complex(a, b)` function.
-4. Print the complex number `x`.
-5. Print the real part of `x` using `x.real`.
-6. Print the imaginary part of `x` using `x.imag`.
-
-## 💻 Program
-```
-a=int(input())
-b=int(input())
-x=complex(a,b)
-print(x)
-print(x.real)
-print(x.imag)
-```
-## Output
-![439813152-1da4ab1d-0d2c-4749-bcc7-93d845aab127](https://github.com/user-attachments/assets/5a858056-0baf-4eb1-99bc-9ee13c50872e)
-## Result
-Thus,the Python program that reads two integers, creates a complex number using them, and then prints the complex number along with its real and imaginary parts is created successfully.
-
-# Datatypes-Read and Print a String in Python
-
-## 🎯 Aim
-To write a Python program to read a string from the user and then print it.
-
-## 🧠 Algorithm
-1. Assign a variable named `men_stepped_on_the_moon`.
-2. Use `input()` to read a string from the user and store it in the variable.
-3. Print the value stored in the variable.
-
-## 🧾 Program
-```
-men_stepped_on_the_moon=input()
-print(men_stepped_on_the_moon)
-```
-## Output
-![439813454-6d64a5fa-b1cd-43a4-b1a3-dfa255432343](https://github.com/user-attachments/assets/44077c1d-66a2-4f6e-89e8-3a72851efadd)
+![443971039-2a50a3e8-3cee-455c-9ade-f6ed33b9411f](https://github.com/user-attachments/assets/bc7fe18a-ca58-4ced-83a9-a28209ab8142)
 
 ## Result
-Thus,the Python program to read a string from the user and then print it is created successfully.
+Thus,the program is executed successfully.
